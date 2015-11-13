@@ -14,24 +14,34 @@ def select_word(wordlist):
 
 def play_hangman(secret_word):
     secret_word_letters = list (secret_word)
-    display_word = " --> "
+    display_word = ""
+    pos_max = -1
     for i in secret_word_letters:
         display_word += "*"
+        pos_max += 1
     print secret_word
     print "break the word"
+    print display_word
     wrong_try  = 0
     while wrong_try < 10:
-        for l in raw_input('>'):#'abcdefghijklmnopqrstuvwxyz':
+        for l in raw_input('>'):
             if l not in secret_word:
                 wrong_try += 1
                 print wrong_try
-            else:
-                display_word = "-"
-        if wrong_try > 10:
+                if wrong_try == 10:
                     print "Game over!!!"
                     return
-    print display_word
-    print "in while loop"
+            else:
+                pos = secret_word.index(l)
+                display_word = list(display_word)
+                display_word[pos] = l #display_word.replace('*',l)
+                pos = pos + 1
+                while pos <= pos_max:
+                    if l == secret_word[pos]:
+                        display_word[pos] = l
+                    pos = pos + 1
+                display_word = "".join(display_word)
+                print display_word
     print secret_word_letters 
 
 wordlist = get_wordlist()
