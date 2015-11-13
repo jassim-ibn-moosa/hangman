@@ -12,10 +12,16 @@ def get_wordlist():
 def select_word(wordlist):
     return random.sample(wordlist, 1)[0]
 
-#def play_hangman(secret_world):
-    # homework!!
+def play_hangman(secret_word):
+    secret_word_letters = list (secret_word)
+    display_word = " --> "
+    for i in secret_word_letters:
+        display_word += "*"
+    print display_word
+    #    display_word = secret
+    print "in while loop"
+    print secret_word_letters 
 
 wordlist = get_wordlist()
 secret = select_word(wordlist)
-print wordlist
-#play_hangman(secret)
+play_hangman(secret)
