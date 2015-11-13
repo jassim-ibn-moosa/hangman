@@ -13,6 +13,7 @@ def select_word(wordlist):
     return random.sample(wordlist, 1)[0]
 
 def play_hangman(secret_word):
+    secret_word_letters = list (secret_word)
     display_word = " --> "
     for i in secret_word_letters:
         display_word += "*"
