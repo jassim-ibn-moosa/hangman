@@ -23,12 +23,12 @@ def play_hangman(secret_word):
         display_word += "*"
         pos_max += 1
         count += 1
-    print secret_word
+#    print secret_word
     print "break the word"
     print display_word
     wrong_try  = 0
-    print pos_max
-    print count
+#    print pos_max
+ #   print count
     while wrong_try < 10 and count > -1:
         for l in raw_input('>'):
             if l not in secret_word and l not in wrong_data:
@@ -45,8 +45,8 @@ def play_hangman(secret_word):
                 display_word = list(display_word)
                 display_word[pos] = l 
                 count -= 1
-                print pos_max
-                print count
+          #      print pos_max
+           #     print count
                 pos = pos + 1
                 while pos <= pos_max:
                     if l == secret_word[pos]:
